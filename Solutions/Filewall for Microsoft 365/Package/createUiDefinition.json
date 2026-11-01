@@ -221,7 +221,7 @@
                 "name": "analytic3-text",
                 "type": "Microsoft.Common.TextBlock",
                 "options": {
-                  "text": "Correlates files that Filewall for Microsoft 365 blocked as malicious or suspicious, in email attachments or in SharePoint, OneDrive and Teams, with Microsoft Defender for Endpoint file events.\nA match means the original file reached a device by another path after Filewall blocked it, for example a direct download, a removable drive, another mail flow or a copy released from quarantine.\nThe match is on the original file hash Filewall recorded; the sanitized hash is kept in the custom details. Requires the Microsoft Defender XDR connector to stream DeviceFileEvents into the workspace."
+                  "text": "Correlates files that Filewall for Microsoft 365 blocked as malicious or suspicious, in email attachments or in SharePoint, OneDrive and Teams, with Microsoft Defender for Endpoint file events.\nA match means the original file was seen on a device after Filewall recorded it (when the email was received, or when the file was processed), so it reached the device by another path, for example a direct download, a removable drive, another mail flow or a copy released from quarantine.\nThe match is on the original file hash Filewall recorded, by SHA1 (always set in DeviceFileEvents) or SHA256; the sanitized hash is kept in the custom details. Each run alerts on pairs where either side was ingested in the last hour, so a match is found whichever record arrives last. Requires the Microsoft Defender XDR connector to stream DeviceFileEvents into the workspace."
                 }
               }
             ]
